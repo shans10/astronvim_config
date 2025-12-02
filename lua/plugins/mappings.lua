@@ -62,23 +62,29 @@ return {
           },
 
           -- ToggleTerm
-          ["<C-\\>"] = { '<Cmd>execute v:count . "ToggleTerm direction=float"<CR>', desc = "ToggleTerm float" }, -- floating
-          ["<C-'>"] = { '<Cmd>execute v:count . "ToggleTerm size=17"<CR>', desc = "Toggle terminal" }, -- horizontal split
+          ["<M-/>"] = { '<Cmd>execute v:count . "ToggleTerm direction=float"<CR>', desc = "ToggleTerm float" }, -- floating
+          ["<M-'>"] = { '<Cmd>execute v:count . "ToggleTerm size=17"<CR>', desc = "Toggle terminal" }, -- horizontal split
         },
 
+        --- TERMINAL MODE ---
         t = {
           -- ToggleTerm
-          ["<C-\\>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" }, -- floating
-          ["<C-'>"] = { "<Cmd>ToggleTerm size=17<CR>", desc = "Toggle terminal" }, -- horizontal split
+          ["<M-/>"] = { "<Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" }, -- floating
+          ["<M-'>"] = { "<Cmd>ToggleTerm size=17<CR>", desc = "Toggle terminal" }, -- horizontal split
+
+          -- Exit terminal mode
+          ["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }, -- use escape to switch to normal mode from terminal mode
+          ["<C-[>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }, -- use escape to switch to normal mode from terminal mode
         },
+
         --- INSERT MODE ---
         i = {
           -- Save File
           ["<C-s>"] = { "<Esc><cmd>w<cr>", desc = "Save file" },
 
           -- ToggleTerm
-          ["<C-\\>"] = { "<Esc><Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" }, -- floating
-          ["<C-'>"] = { "<Esc><Cmd>ToggleTerm size=17<CR>", desc = "Toggle terminal" }, -- horizontal split
+          ["<M-/>"] = { "<Esc><Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" }, -- floating
+          ["<M-'>"] = { "<Esc><Cmd>ToggleTerm size=17<CR>", desc = "Toggle terminal" }, -- horizontal split
         },
 
         --- VISUAL MODE ---
