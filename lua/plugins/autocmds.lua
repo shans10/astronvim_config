@@ -36,6 +36,32 @@ return {
           end,
         },
       },
+
+      -- Enable spell and wrap for some filetypes
+      auto_spell = {
+        {
+          event = "FileType",
+          desc = "Enable wrap and spell for text like documents",
+          pattern = { "gitcommit", "markdown", "text", "plaintex" },
+          callback = function()
+            vim.opt_local.wrap = true
+            vim.opt_local.spell = true
+          end,
+        },
+      },
+
+      -- Autohide tabline when only one buffer
+      autohide_tabline = {
+        {
+          event = "User",
+          desc = "Auto hide tabline",
+          pattern = "AstroBufsUpdated",
+          callback = function()
+            local new_showtabline = #vim.t.bufs > 1 and 2 or 1
+            if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
+          end,
+        },
+      },
     },
   },
 }

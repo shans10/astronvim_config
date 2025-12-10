@@ -1,9 +1,12 @@
 -- if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 
+-- Customize Neovide settings
+
 if not vim.g.neovide then
   return {} -- do nothing if not in a Neovide session
 end
 
+---@type LazySpec
 return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts

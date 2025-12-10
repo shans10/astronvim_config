@@ -2,6 +2,7 @@
 
 -- Customize AstroCore Mappings
 
+---@type LazySpec
 return {
   {
     "AstroNvim/astrocore",
@@ -23,14 +24,11 @@ return {
           ["<C-u>"] = { "<C-u>zz" },
 
           -- Standard Leader-key operations
-          ["<Leader><C-w>"] = { "<cmd>cd %:p:h<cr>", desc = "Set CWD to current file" },
+          ["<Leader>."] = { "<Cmd>cd %:p:h<CR>", desc = "Set CWD" },
 
           -- Better increment/decrement
           ["-"] = { "<C-x>", desc = "Decrement number" },
           ["+"] = { "<C-a>", desc = "Increment number" },
-
-          -- External terminal
-          ["<Leader>tt"] = { "<cmd>!kgx<cr><cr>", desc = "Open external terminal in cwd" },
 
           -- Navigate buffer tabs
           ["]b"] = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
@@ -42,9 +40,9 @@ return {
           ["<Leader>bd"] = { function() require("astrocore.buffer").close() end, desc = "Delete buffer" },
           ["<Leader>bf"] = { function() require("astrocore.buffer").close(0, true) end, desc = "Force delete buffer" },
           ["<Leader>bi"] = { "gg=G", desc = "Indent all" },
-          ["<Leader>bs"] = { "<cmd>w<cr>", desc = "Save buffer" },
-          ["<Leader>bS"] = { "<cmd>wa<cr>", desc = "Save all buffers" },
-          ["<Leader>bt"] = { "<cmd>%s/\\s\\+$//e | noh<cr>", desc = "Remove trailing whitespaces" },
+          ["<Leader>bs"] = { "<Cmd>w<CR>", desc = "Save buffer" },
+          ["<Leader>bS"] = { "<Cmd>wa<CR>", desc = "Save all buffers" },
+          ["<Leader>bt"] = { "<Cmd>%s/\\s\\+$//e | noh<CR>", desc = "Remove trailing whitespaces" },
           ["<Leader>by"] = { "ggVGy", desc = "Yank buffer" },
 
           -- Buffer Sort
@@ -64,6 +62,10 @@ return {
           -- ToggleTerm
           ["<M-/>"] = { '<Cmd>execute v:count . "ToggleTerm direction=float"<CR>', desc = "ToggleTerm float" }, -- floating
           ["<M-'>"] = { '<Cmd>execute v:count . "ToggleTerm size=17"<CR>', desc = "Toggle terminal" }, -- horizontal split
+
+          -- Same next search 'n/N' behaviour for both '/' and '?' searches
+          ["n"] = { "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next Search Result" },
+          ["N"] = { "'nN'[v:searchforward].'zv'", expr = true, desc = "Prev Search Result" },
         },
 
         --- TERMINAL MODE ---
@@ -74,13 +76,16 @@ return {
 
           -- Exit terminal mode
           ["<Esc>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }, -- use escape to switch to normal mode from terminal mode
-          ["<C-[>"] = { "<C-\\><C-n>", desc = "Exit terminal mode" }, -- use escape to switch to normal mode from terminal mode
+          ["<C-BS>"] = { "<C-\\><C-n>", desc = "Terminal normal mode" },
         },
 
         --- INSERT MODE ---
         i = {
           -- Save File
-          ["<C-s>"] = { "<Esc><cmd>w<cr>", desc = "Save file" },
+          ["<C-s>"] = { "<Esc><Cmd>w<CR>", desc = "Save file" },
+
+          -- Add tab character in insert mode
+          ["<S-Tab>"] = { "<C-V><Tab>", desc = "Tab character" },
 
           -- ToggleTerm
           ["<M-/>"] = { "<Esc><Cmd>ToggleTerm direction=float<CR>", desc = "ToggleTerm float" }, -- floating
@@ -95,6 +100,16 @@ return {
 
           -- Paste over text without losing it
           ["p"] = { [["_dP]], desc = "Paste with preserve" },
+
+          -- Same next search 'n/N' behaviour for both '/' and '?' searches
+          ["n"] = { "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next Search Result" },
+          ["N"] = { "'nN'[v:searchforward].'zv'", expr = true, desc = "Prev Search Result" },
+        },
+
+        o = {
+          -- Same next search 'n/N' behaviour for both '/' and '?' searches
+          ["n"] = { "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next Search Result" },
+          ["N"] = { "'nN'[v:searchforward].'zv'", expr = true, desc = "Prev Search Result" },
         },
       },
     },
