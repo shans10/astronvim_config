@@ -26,12 +26,12 @@ return {
         list = true, -- show whitespace characters
         listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }, -- set whitespace chars
         showbreak = "↪ ", -- set break char
-        showtabline = (vim.t.bufs and #vim.t.bufs > 1) and 2 or 1, -- show tabline when more than 1 buffer
+        showtabline = 0,
         scrolloff = 10, -- keep scroll position away from edges
         shell = "/usr/bin/fish",
         swapfile = false, -- disable swapfile creation
         wrap = true, -- soft wrap lines
-        whichwrap = vim.opt.whichwrap:append "<,>[,],h,l", -- automatically go to next line
+        -- whichwrap = vim.opt.whichwrap:append "<,>[,],h,l", -- automatically go to next line
       },
     },
   },

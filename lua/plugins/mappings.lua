@@ -66,6 +66,9 @@ return {
           -- Same next search 'n/N' behaviour for both '/' and '?' searches
           ["n"] = { "'Nn'[v:searchforward].'zv'", expr = true, desc = "Next Search Result" },
           ["N"] = { "'nN'[v:searchforward].'zv'", expr = true, desc = "Prev Search Result" },
+
+          -- Isolate Ctrl-I from Tab
+          ["<C-i>"] = { "<C-i>" },
         },
 
         --- TERMINAL MODE ---
