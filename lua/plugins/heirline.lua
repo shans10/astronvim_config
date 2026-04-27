@@ -36,6 +36,7 @@ return {
       status.component.git_branch(),
       status.component.file_info {
         file_icon = false,
+        filetype = false,
         filename = { modify = ":." }
       },
       status.component.git_diff(),

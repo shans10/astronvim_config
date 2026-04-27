@@ -1,6 +1,6 @@
 # AstroNvim Template
 
-**NOTE:** This is for AstroNvim v5+
+**NOTE:** This is for AstroNvim v6+
 
 This repo contains my personal configuration for [AstroNvim](https://github.com/AstroNvim/AstroNvim).
 

@@ -22,7 +22,6 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        conceallevel = 1, -- enable conceal
         list = true, -- show whitespace characters
         listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }, -- set whitespace chars
         showbreak = "↪ ", -- set break char
@@ -31,7 +30,6 @@ return {
         shell = "/usr/bin/fish",
         swapfile = false, -- disable swapfile creation
         wrap = true, -- soft wrap lines
-        -- whichwrap = vim.opt.whichwrap:append "<,>[,],h,l", -- automatically go to next line
       },
     },
   },
