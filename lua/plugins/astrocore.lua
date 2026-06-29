@@ -25,7 +25,7 @@ return {
         list = true, -- show whitespace characters
         listchars = { tab = "│→", extends = "⟩", precedes = "⟨", trail = "·", nbsp = "␣" }, -- set whitespace chars
         showbreak = "↪ ", -- set break char
-        showtabline = 0,
+        -- showtabline = 0,
         scrolloff = 10, -- keep scroll position away from edges
         shell = "/usr/bin/fish",
         swapfile = false, -- disable swapfile creation

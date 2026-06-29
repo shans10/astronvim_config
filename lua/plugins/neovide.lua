@@ -24,6 +24,10 @@ return {
         -- Cursor
         neovide_cursor_animation_length = 0.03,
         neovide_cursor_trail_size = 0.1,
+
+        -- Transparency
+        neovide_opacity = 0.91,
+        neovide_normal_opacity = 0.91,
       },
     },
   },
